@@ -34,10 +34,45 @@ db.open(function(err, db) {
 
 
 exports.index = function(req, res){
+    var start = currentStartDay();
+    var end = currentEndDay();
+
     db.collection(COLL_NAME, function (err, collection) {
-        collection.find().toArray(functino (err, items) {
-            console.log("findAll");
+        collection.find({date:{"$gt":start, "$lt":end}}).toArray(function (err, items) {
+            if (!err) {
+                res.render('index', { title: 'Express',
+                           articles: items});
+            } else {
+                res.render('index', { title: 'Express',
+                           articles: null});
+            }
         });
     });
-    res.render('index', { title: 'Express' });
 };
+
+var ONE_DAY = 24 * 60 * 60 * 1000;
+
+var currentStartDay = function() {
+    var date = new Date();
+
+    console.log(ONE_DAY);
+    date.setHours(0);
+    date.setMinutes(0);
+    date.setSeconds(0);
+
+    date = date - ONE_DAY;
+
+    return parseInt(date/1000);
+};
+
+var currentEndDay = function() {
+    var date = new Date();
+
+    date.setHours(23);
+    date.setMinutes(59);
+    date.setSeconds(59);
+
+    date = date - ONE_DAY;
+    return parseInt(date/1000);
+};
+

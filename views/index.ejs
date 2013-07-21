@@ -7,5 +7,12 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <% if (articles !== null) { %>
+      <% articles.forEach(function(article) { %>
+      <p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
+      <% }); %>
+    <% } else { %>
+      <p>データを読み込めませんでした。</p>
+    <% } %>
   </body>
 </html>
