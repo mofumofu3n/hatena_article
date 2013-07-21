@@ -8,9 +8,55 @@
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
     <% if (articles !== null) { %>
-      <% articles.forEach(function(article) { %>
-      <p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
-      <% }); %>
+        <h1>社会</h1>
+        <% articles.forEach(function(article) { %>
+            <% if (article.subject == "世の中") { %>
+                <p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
+            <% } %>
+        <% }); %>
+
+        <h1>政治・経済</h1>
+        <% articles.forEach(function(article) { %>
+            <% if (article.subject == "政治と経済") { %>
+                <p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
+            <% } %>
+        <% }); %>
+        <h1>生活・人生</h1>
+        <% articles.forEach(function(article) { %>
+            <% if (article.subject == "暮らし") { %>
+                <p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
+            <% } %>
+        <% }); %>
+        <h1>スポーツ・芸能・音楽</h1>
+        <% articles.forEach(function(article) { %>
+            <% if (article.subject == "エンタメ") { %>
+                <p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
+            <% } %>
+        <% }); %>
+        <h1>科学・学問</h1>
+        <% articles.forEach(function(article) { %>
+            <% if (article.subject == "学び") { %>
+                <p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
+            <% } %>
+        <% }); %>
+        <h1>コンピュータ</h1>
+        <% articles.forEach(function(article) { %>
+            <% if (article.subject == "テクノロジー") { %>
+                <p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
+            <% } %>
+        <% }); %>
+        <h1>ゲーム・アニメ</h1>
+        <% articles.forEach(function(article) { %>
+            <% if (article.subject == "アニメとゲーム") { %>
+                <p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
+            <% } %>
+        <% }); %>
+        <h1>おもしろ</h1>
+        <% articles.forEach(function(article) { %>
+            <% if (article.subject == "おもしろ") { %>
+                <p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
+            <% } %>
+        <% }); %>
     <% } else { %>
       <p>データを読み込めませんでした。</p>
     <% } %>
