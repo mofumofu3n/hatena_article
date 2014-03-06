@@ -8,6 +8,7 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
+  , partials = require('express-partials')
   , path = require('path');
 
 var app = express();
@@ -21,6 +22,7 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
+app.use(partials());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only

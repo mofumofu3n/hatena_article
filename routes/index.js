@@ -14,6 +14,7 @@ BSON = mongo.BSONPure;
 
 var DB_NAME = 'hatenadb';
 var COLL_NAME = 'article';
+var TITLE = 'はてなまとめ';
 
 // Server
 var server = new Server('localhost', 27017, {auto_reconnect: true});
@@ -33,18 +34,61 @@ db.open(function(err, db) {
 });
 
 
-exports.index = function(req, res){
+exports.index = function(req, res, next){
     var start = currentStartDay();
     var end = currentEndDay();
+    var count = 0;
 
     db.collection(COLL_NAME, function (err, collection) {
         collection.find({date:{"$gt":start, "$lt":end}}).toArray(function (err, items) {
             if (!err) {
-                res.render('index', { title: 'Express',
-                           articles: items});
+                var articles = {
+                    social: [],
+                    economics: [],
+                    life: [],
+                    knowledge: [],
+                    entertainment: [],
+                    it: [],
+                    game: [],
+                    fun: [],
+                };
+
+                items.forEach(function(item) {
+                    if (item.subject === '世の中') {
+                        articles.social.push(item);
+                    } 
+                    if (item.subject === '政治と経済') {
+                        articles.economics.push(item);
+                    }
+
+                    if (item.subject === '暮らし') {
+                        articles.life.push(item);
+                    }
+                    if (item.subject === '学び') {
+                        articles.knowledge.push(item);
+                    }
+                    if (item.subject === 'テクノロジー') {
+                        articles.it.push(item);
+                    }
+                    if (item.subject === 'エンタメ') {
+                        articles.entertainment.push(item);
+                    }
+                    if (item.subject === 'アニメとゲーム') {
+                        articles.game.push(item);
+                    }
+                    if (item.subject === 'おもしろ') {
+                        articles.fun.push(item);
+                    }
+                });
+
+                res.render('index', { 
+                    title: TITLE,
+                    articles: articles
+                });
             } else {
-                res.render('index', { title: 'Express',
-                           articles: null});
+                res.render('index', { title: TITLE,
+                           articles: null
+                });
             }
         });
     });
