@@ -2,35 +2,35 @@
 <p>Welcome to <%= title %></p>
 <% if (articles !== null) { %>
 <h1>社会</h1>
-<% articles.social.forEach(function(article) { %>
+<% articles.social.sort(function(a, b) { return b.bookmark - a.bookmark}).forEach(function(article) { %>
 <p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
 <% }); %>
 <h1>政治・経済</h1>
-<% articles.economics.forEach(function(article) { %>
+<% articles.economics.sort(function(a, b) { return b.bookmark - a.bookmark}).forEach(function(article) { %>
 <p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
 <% }); %>
 <h1>生活・人生</h1>
-<% articles.life.forEach(function(article) { %>
+<% articles.life.sort(function(a, b) { return b.bookmark - a.bookmark}).forEach(function(article) { %>
 <p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
 <% }); %>
 <h1>スポーツ・芸能・音楽</h1>
-<% articles.entertainment.forEach(function(article) { %>
+<% articles.entertainment.sort(function(a, b) { return b.bookmark - a.bookmark}).forEach(function(article) { %>
 <p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
 <% }); %>
 <h1>科学・学問</h1>
-<% articles.knowledge.forEach(function(article) { %>
+<% articles.knowledge.sort(function(a, b) { return b.bookmark - a.bookmark}).forEach(function(article) { %>
 <p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
 <% }); %>
 <h1>コンピュータ</h1>
-<% articles.it.forEach(function(article) { %>
+<% articles.it.sort(function(a, b) { return b.bookmark - a.bookmark}).forEach(function(article) { %>
 <p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
 <% }); %>
 <h1>ゲーム・アニメ</h1>
-<% articles.game.forEach(function(article) { %>
+<% articles.game.sort(function(a, b) { return b.bookmark - a.bookmark}).forEach(function(article) { %>
 <p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
 <% }); %>
 <h1>おもしろ</h1>
-<% articles.fun.forEach(function(article) { %>
+<% articles.fun.sort(function(a, b) { return b.bookmark - a.bookmark}).forEach(function(article) { %>
 <p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
 <% }); %>
 <% } else { %>
