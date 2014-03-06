@@ -9,14 +9,16 @@ var express = require('express')
   , user = require('./routes/user')
   , http = require('http')
   , partials = require('express-partials')
-  , path = require('path');
+  , path = require('path')
+  , ECT = require('ect');
 
 var app = express();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
+app.engine('ect', ECT({watch: true, root: __dirname + '/views', ext: '.ect'}).render);
+app.set('view engine', 'ect');
 app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());

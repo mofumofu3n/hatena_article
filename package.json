@@ -1,14 +1,21 @@
 {
-  "name": "application-name",
+  "author": "mofumofu3n <mofumofu3n@gmail.com> (http://mofumofu3n.com)",
+  "name": "hatena_article",
+  "description": "This app is matome of Hatena Bookmark",
   "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node app.js"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mofumofu3n/hatena_article.git"
   },
+  "main": "app.js",
   "dependencies": {
-    "express": "3.2.2",
-    "ejs": "*",
-    "mongodb": "*",
-    "express-partials": "*"
+    "express": "~3.4.8",
+    "mongodb": "~1.3.23",
+    "express-partials": "~0.2.0"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
   }
 }

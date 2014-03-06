@@ -1,0 +1,48 @@
+<% extend 'layout' %>
+<h1><%= @title %></h1>
+<p>Welcome to <%= @title %></p>
+<% if @articles != null : %>
+<h1>社会</h1>
+<% compareBookmark = (a, b) -> b.bookmark - a.bookmark %>
+<% @articles.social.sort compareBookmark %>
+<% for article in @articles.social: %>
+<p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
+<% end %>
+<h1>政治・経済</h1>
+<% @articles.economics.sort compareBookmark %>
+<% for article in @articles.economics: %>
+<p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
+<% end %>
+<h1>生活・人生</h1>
+<% @articles.life.sort compareBookmark %>
+<% for article in @articles.life: %>
+<p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
+<% end %>
+<h1>スポーツ・芸能・音楽</h1>
+<% @articles.entertainment.sort compareBookmark %>
+<% for article in @articles.entertainment: %>
+<p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
+<% end %>
+<h1>科学・学問</h1>
+<% @articles.knowledge.sort compareBookmark %>
+<% for article in @articles.knowledge: %>
+<p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
+<% end %>
+<h1>コンピュータ</h1>
+<% @articles.it.sort compareBookmark %>
+<% for article in @articles.it: %>
+<p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
+<% end %>
+<h1>ゲーム・アニメ</h1>
+<% @articles.game.sort compareBookmark %>
+<% for article in @articles.game: %>
+<p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
+<% end %>
+<h1>おもしろ</h1>
+<% @articles.fun.sort compareBookmark %>
+<% for article in @articles.fun: %>
+<p><a href=<%=article.url %>> <%= article.title %></a> <%=article.bookmark %></p>
+<% end %>
+<%  else : %>
+<p>データを読み込めませんでした。</p>
+<% end %>
