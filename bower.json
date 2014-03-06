@@ -1,0 +1,22 @@
+{
+  "name": "hatena_article",
+  "version": "0.0.1",
+  "homepage": "https://github.com/mofumofu3n/hatena_article",
+  "authors": [
+    "mofumofu3n <mofumofu3n@gmail.com>"
+  ],
+  "description": "aaa",
+  "main": "app.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "furatto": "~3.0.1"
+  }
+}

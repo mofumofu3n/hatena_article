@@ -26,6 +26,7 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(partials());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/components')));
 
 // development only
 if ('development' == app.get('env')) {
